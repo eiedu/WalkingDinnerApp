@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingDinnerWeb", "WalkingDinnerWeb\WalkingDinnerWeb.csproj", "{0FF15368-ED6D-4045-9137-C39F84DBCA91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingDinnerWeb.Tests", "WalkingDinnerWeb.Tests\WalkingDinnerWeb.Tests.csproj", "{FC0DA5E2-3E57-44DD-AD1B-22F77CB2012B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FF15368-ED6D-4045-9137-C39F84DBCA91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF15368-ED6D-4045-9137-C39F84DBCA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF15368-ED6D-4045-9137-C39F84DBCA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF15368-ED6D-4045-9137-C39F84DBCA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC0DA5E2-3E57-44DD-AD1B-22F77CB2012B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC0DA5E2-3E57-44DD-AD1B-22F77CB2012B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC0DA5E2-3E57-44DD-AD1B-22F77CB2012B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC0DA5E2-3E57-44DD-AD1B-22F77CB2012B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AE7E009-A949-4520-88CB-A884761B5A25}
+	EndGlobalSection
+EndGlobal

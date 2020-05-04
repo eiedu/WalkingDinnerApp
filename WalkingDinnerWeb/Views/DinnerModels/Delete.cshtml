@@ -1,0 +1,64 @@
+﻿@model WalkingDinnerWeb.Models.DinnerModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DinnerModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DinnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DinnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrepTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumOfRounds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumOfRounds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parallel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parallel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

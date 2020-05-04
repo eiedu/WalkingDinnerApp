@@ -1,0 +1,10 @@
+﻿
+enable-migrations
+
+add-Migration -Configuration WalkingDinnerWeb.Migrations.Configuration
+
+(upgrade)
+update-database -Configuration WalkingDinnerWeb.Migrations.Configuration
+
+(downgrade)
+update-database -Configuration WalkingDinnerWeb.Migrations.Configuration -TargetMigration
