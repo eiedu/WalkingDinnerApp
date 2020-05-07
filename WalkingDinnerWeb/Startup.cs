@@ -2,9 +2,11 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System;
 using WalkingDinnerWeb.Models;
 
 [assembly: OwinStartupAttribute(typeof(WalkingDinnerWeb.Startup))]
+
 namespace WalkingDinnerWeb
 {
     public partial class Startup
@@ -26,13 +28,12 @@ namespace WalkingDinnerWeb
             {
                 var role = new IdentityRole("Administrator");
                 roleManager.Create(role);
-
                 try
                 {
                     var user = userManager.FindByEmail("Admin@itvitae.nl");
                     userManager.AddToRole(user.Id, "Administrator");
                 }
-                catch (System.Exception)
+                catch (Exception)
                 {
                     var user = new ApplicationUser();
                     user.UserName = "Admin@itvitae.nl";
@@ -48,6 +49,12 @@ namespace WalkingDinnerWeb
                         throw;
                     }
                 }
+            }
+
+            if (!roleManager.RoleExists("User"))
+            {
+                var role = new IdentityRole("User");
+                roleManager.Create(role);
             }
         }
     }

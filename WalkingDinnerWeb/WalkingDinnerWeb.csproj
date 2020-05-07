@@ -181,6 +181,14 @@
     <Compile Include="Migrations\202005011120254_initial.Designer.cs">
       <DependentUpon>202005011120254_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005071017134_AddedIban.cs" />
+    <Compile Include="Migrations\202005071017134_AddedIban.Designer.cs">
+      <DependentUpon>202005071017134_AddedIban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071049383_ChangedPhoneNumber.cs" />
+    <Compile Include="Migrations\202005071049383_ChangedPhoneNumber.Designer.cs">
+      <DependentUpon>202005071049383_ChangedPhoneNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DinnerModel.cs" />
@@ -192,6 +200,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-WalkingDinnerWeb-20200501104052.mdf" />
+    <Content Include="App_Data\aspnet-WalkingDinnerWeb-20200501104052_log.ldf">
+      <DependentUpon>aspnet-WalkingDinnerWeb-20200501104052.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -263,10 +275,10 @@
     <Content Include="Views\DinnerModels\Details.cshtml" />
     <Content Include="Views\DinnerModels\Edit.cshtml" />
     <Content Include="Views\DinnerModels\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\DuoModels\myProfile.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -283,6 +295,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005011120254_initial.resx">
       <DependentUpon>202005011120254_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071017134_AddedIban.resx">
+      <DependentUpon>202005071017134_AddedIban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071049383_ChangedPhoneNumber.resx">
+      <DependentUpon>202005071049383_ChangedPhoneNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

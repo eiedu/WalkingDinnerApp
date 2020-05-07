@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using WalkingDinnerWeb.DAL;
 using WalkingDinnerWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace WalkingDinnerWeb.Controllers
 {
@@ -48,17 +49,16 @@ namespace WalkingDinnerWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary")] DuoModel duoModel)
+        public async Task<ActionResult> Create([Bind(Include = "FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary,IBan")] DuoModel duoModel)
         {
             //TODO: manage id and userId
             if (ModelState.IsValid)
             {
-                db.Duos.Add(duoModel);
+                duoModel.UserId = User.Identity.GetUserId();
+                db.Duos.Add(duoModel);            
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
             }
-
-            return View(duoModel);
+            return RedirectToAction("Index","Home");
         }
 
         // GET: DuoModels/Edit/5
@@ -117,6 +117,14 @@ namespace WalkingDinnerWeb.Controllers
             db.Duos.Remove(duoModel);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        //Action Result for displaying the Profile from The User
+        public ActionResult myProfile()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            var profile = db.Duos.Where(d => d.UserId == currentUserId).FirstOrDefault();
+            return View(profile);
         }
 
         protected override void Dispose(bool disposing)

@@ -30,6 +30,10 @@
                         <li>@Html.ActionLink("Rounds", "Index", "RoundModels")</li>
                         <li>@Html.ActionLink("Dinners", "Index", "DinnerModels")</li>
                     }
+                    @if (User.IsInRole("User"))
+                    {
+                        <li>@Html.ActionLink("My profile", "myProfile", "DuoModels")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
