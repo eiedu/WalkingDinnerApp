@@ -4,6 +4,7 @@ namespace WalkingDinnerWeb.Models
 {
     public class DuoModel
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

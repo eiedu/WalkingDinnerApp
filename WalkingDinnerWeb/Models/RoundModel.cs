@@ -8,6 +8,7 @@ namespace WalkingDinnerWeb.Models
 {
     public class RoundModel
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public DinnerModel DinnerId { get; set; }

@@ -8,6 +8,7 @@ namespace WalkingDinnerWeb.Models
 {
     public class DinnerModel
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string DinnerName { get; set; }
