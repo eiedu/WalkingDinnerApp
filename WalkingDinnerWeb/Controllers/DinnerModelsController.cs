@@ -48,7 +48,7 @@ namespace WalkingDinnerWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "DinnerName,StartTime,PrepTime,NumOfRounds,Parallel")] DinnerModel dinnerModel)
+        public async Task<ActionResult> Create([Bind(Include = "Id,DinnerName,StartTime,PrepTime,NumOfRounds,Parallel")] DinnerModel dinnerModel)
         {
             //TODO: Manage Id
             if (ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace WalkingDinnerWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "DinnerName,StartTime,PrepTime,NumOfRounds,Parallel")] DinnerModel dinnerModel)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,DinnerName,StartTime,PrepTime,NumOfRounds,Parallel")] DinnerModel dinnerModel)
         {
             //TODO: manage Id
             if (ModelState.IsValid)

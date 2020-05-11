@@ -49,7 +49,7 @@ namespace WalkingDinnerWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary,IBan")] DuoModel duoModel)
+        public async Task<ActionResult> Create([Bind(Include = "Id,FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary,IBan")] DuoModel duoModel)
         {
             //TODO: manage id and userId
             if (ModelState.IsValid)
@@ -57,8 +57,9 @@ namespace WalkingDinnerWeb.Controllers
                 duoModel.UserId = User.Identity.GetUserId();
                 db.Duos.Add(duoModel);            
                 await db.SaveChangesAsync();
+                return RedirectToAction("Index","Home");
             }
-            return RedirectToAction("Index","Home");
+            return View(duoModel);
         }
 
         // GET: DuoModels/Edit/5
@@ -81,7 +82,7 @@ namespace WalkingDinnerWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary")] DuoModel duoModel)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,FirstNameOne,LastNameOne,InsertionOne,FirstNameTwo,LastNameTwo,InsertionTwo,StreetName,HouseNumber,PostalCode,City,PhoneNumber,Email,Dietary")] DuoModel duoModel)
         {
             //TODO: manage id and userId
             if (ModelState.IsValid)

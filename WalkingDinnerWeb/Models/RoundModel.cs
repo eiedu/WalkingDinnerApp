@@ -25,6 +25,11 @@ namespace WalkingDinnerWeb.Models
 
         public ICollection<string> Dietary { get; set; }
         [Required]
-        public ICollection<DuoModel> Participants { get; set; }
+        public virtual ICollection<DuoModel> Participants { get; set; }
+
+        public RoundModel()
+        {
+            Participants = new List<DuoModel>();
+        }
     }
 }
