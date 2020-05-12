@@ -23,13 +23,14 @@ namespace WalkingDinnerWeb.Models
         [Required]
         public DateTime EndTime { get; set; }
 
-        public ICollection<string> Dietary { get; set; }
+        public virtual ICollection<string> Dietary { get; set; }
         [Required]
         public virtual ICollection<DuoModel> Participants { get; set; }
 
         public RoundModel()
         {
             Participants = new List<DuoModel>();
+            Dietary = new List<string>();
         }
     }
 }

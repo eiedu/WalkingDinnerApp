@@ -17,12 +17,14 @@ namespace WalkingDinnerWeb.Models
         public DateTime? PrepTime { get; set; }
         public int NumOfRounds { get; set; }
         public int Parallel { get; set; }
+        public bool roundsMade { get; set; }
 
         public virtual ICollection<DuoModel> Participants { get; set; }
         public virtual ICollection<RoundModel> Rounds { get; set; }
 
         public DinnerModel()
         {
+            roundsMade = false;
             Participants = new List<DuoModel>();
             Rounds = new List<RoundModel>();
         }

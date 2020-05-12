@@ -415,7 +415,24 @@ namespace WalkingDinnerWeb.Migrations
                 PostalCode = "1234 AB",
                 StreetName = "W"
             });
-#endregion
+            duoModels.Add(new DuoModel
+            {
+                City = "X",
+                Dietary = "X",
+                Email = "A@A.A",
+                FirstNameOne = "X",
+                FirstNameTwo = "X",
+                HouseNumber = "X",
+                IBan = "X",
+                InsertionOne = "X",
+                InsertionTwo = "X",
+                LastNameOne = "X",
+                LastNameTwo = "X",
+                PhoneNumber = "0355423277",
+                PostalCode = "1234 AB",
+                StreetName = "X"
+            });
+            #endregion
 
             context.Duos.AddRange(duoModels);
             context.SaveChanges();
@@ -435,9 +452,19 @@ namespace WalkingDinnerWeb.Migrations
             });
             Dinners.Add(new DinnerModel
             {
-                DinnerName = "Dinner A",
+                DinnerName = "Dinner B",
                 NumOfRounds = 3,
                 Parallel = 8,
+                //Participants = duos,
+                StartTime = DateTime.Now,
+                PrepTime = DateTime.Now,
+                Rounds = new List<RoundModel>()
+            });
+            Dinners.Add(new DinnerModel
+            {
+                DinnerName = "Dinner C",
+                NumOfRounds = 2,
+                Parallel = 12,
                 //Participants = duos,
                 StartTime = DateTime.Now,
                 PrepTime = DateTime.Now,
@@ -467,15 +494,17 @@ namespace WalkingDinnerWeb.Migrations
                 }
             }
             //TODO: make this an update operation
-            foreach (var item in Dinners)
+            //find dinner Ids, get the dinner, add the participants and update the item
+            foreach (var Dinner in Dinners)
             {
-                foreach (var duo in duos)
+                var duoIds = context.Duos.Select(x => x.Id).ToList();
+
+                var dinner = context.Dinners.FirstOrDefault(d => d.Id == Dinner.Id);
+                foreach (var id in duoIds)
                 {
-                    item.Participants.Add(duo);
+                    dinner.Participants.Add(context.Duos.Find(id));
                 }
             }
-
-            context.Dinners.AddRange(Dinners);
             context.SaveChanges();
         }
     }
